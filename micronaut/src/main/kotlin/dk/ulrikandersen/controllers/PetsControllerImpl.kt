@@ -1,9 +1,7 @@
-package dk.ulrikandersen
+package dk.ulrikandersen.controllers
 
-import dk.ulrikandersen.controllers.PetsController
 import dk.ulrikandersen.models.Pet
 import io.micronaut.http.HttpResponse
-import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import java.util.concurrent.ConcurrentHashMap
 

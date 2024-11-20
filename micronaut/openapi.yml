@@ -10,10 +10,24 @@ info:
     url: https://example.com/support
     email: support@example.com
 servers:
-  - url: http://petstore.swagger.io/v1
+  - url: http://localhost:8080
+    description: Development server
 tags:
   - name: pets
+  - name: user
 paths:
+  /user/me:
+    get:
+      summary: Profile of logged in user
+      description: Retrieve the profile of the current user
+      operationId: userProfile
+      tags:
+        - user
+      security:
+        - userAuthBasic: []
+      responses:
+        204:
+          description: No content for now
   /pets:
     get:
       summary: List all pets
@@ -98,6 +112,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 components:
+  securitySchemes:
+    userAuthBasic:
+      type: http
+      scheme: basic
   schemas:
     Pet:
       type: object

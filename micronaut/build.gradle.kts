@@ -32,6 +32,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     implementation("io.micronaut.validation:micronaut-validation")
 
+    // security
+    implementation("io.micronaut.security:micronaut-security-jwt")
+    implementation("io.micronaut.security:micronaut-security-annotations")
+
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -84,6 +88,7 @@ fabrikt {
         controller {
             generate = true
             target = Micronaut
+            authentication = true
         }
         model {
             micronautIntrospection = enabled
