@@ -1,3 +1,5 @@
 # Fabrikt Examples
 
-[Micronaut](/micronaut)
+- [x] [Micronaut](/micronaut)
+- [ ] Ktor Server
+- [ ] OkHttp Client
