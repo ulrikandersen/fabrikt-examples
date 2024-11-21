@@ -160,6 +160,45 @@ components:
             - partiallyOnboarded
             - notOnboarded
           example: notOnboarded
+        uploadedMedia:
+          type: array
+          items:
+            $ref: "#/components/schemas/Media"
+    Media:
+      oneOf:
+        - $ref: "#/components/schemas/Image"
+        - $ref: "#/components/schemas/Video"
+      discriminator:
+        propertyName: type
+        mapping:
+          image: "#/components/schemas/Image"
+          video: "#/components/schemas/Video"
+    Image:
+        type: object
+        required:
+          - url
+          - type
+        properties:
+          url:
+              type: string
+              format: uri
+          type:
+              type: string
+    Video:
+      type: object
+      required:
+        - url
+        - type
+        - duration
+      properties:
+        url:
+            type: string
+            format: uri
+        type:
+            type: string
+        duration:
+          type: integer
+          format: int32
     Error:
       type: object
       required:
