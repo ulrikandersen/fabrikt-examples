@@ -8,12 +8,16 @@ import jakarta.inject.Singleton
 
 @Singleton
 @Suppress("unused")
-class AuthenticationProviderUserPassword<B> : HttpRequestAuthenticationProvider<B> {
+class StaticUsernamePasswordAuthenticationProvider<B> : HttpRequestAuthenticationProvider<B> {
 
     override fun authenticate(
         httpRequest: HttpRequest<B>?,
         authenticationRequest: AuthenticationRequest<String, String>
     ): AuthenticationResponse {
-        return AuthenticationResponse.success("testUser", listOf("ROLE_USER"))
+        return if (authenticationRequest.identity == "test" && authenticationRequest.secret == "test") {
+            AuthenticationResponse.success(authenticationRequest.identity)
+        } else {
+            AuthenticationResponse.failure("Invalid username or password")
+        }
     }
 }

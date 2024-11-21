@@ -92,6 +92,7 @@ fabrikt {
         }
         model {
             micronautIntrospection = enabled
+            suffix = "NetworkModel"
         }
     }
 }

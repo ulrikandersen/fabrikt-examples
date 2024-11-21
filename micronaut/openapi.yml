@@ -26,8 +26,12 @@ paths:
       security:
         - userAuthBasic: []
       responses:
-        204:
-          description: No content for now
+        200:
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
   /pets:
     get:
       summary: List all pets
@@ -137,6 +141,17 @@ components:
       maxItems: 100
       items:
         $ref: "#/components/schemas/Pet"
+    UserProfile:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
     Error:
       type: object
       required:

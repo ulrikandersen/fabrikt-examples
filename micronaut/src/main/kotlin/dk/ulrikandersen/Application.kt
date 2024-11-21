@@ -1,6 +1,7 @@
 package dk.ulrikandersen
 
-import dk.ulrikandersen.models.Pet
+import dk.ulrikandersen.models.PetNetworkModel
+import dk.ulrikandersen.models.UserProfileNetworkModel
 import io.micronaut.core.type.Argument
 import io.micronaut.runtime.Micronaut.run
 import io.micronaut.serde.Decoder
@@ -28,7 +29,8 @@ class UnitSerializer : Serde<Unit> {
 	}
 }
 
-@SerdeImport(Pet::class)
+@SerdeImport(PetNetworkModel::class)
+@SerdeImport(UserProfileNetworkModel::class)
 @SerdeImport(Unit::class)
 @Suppress("unused")
 object Application
