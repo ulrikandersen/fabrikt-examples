@@ -146,12 +146,20 @@ components:
       required:
         - name
         - email
+        - onboardingStatus
       properties:
         name:
           type: string
         email:
           type: string
           format: email
+        onboardingStatus:
+          type: string
+          enum:
+            - onboarded
+            - partiallyOnboarded
+            - notOnboarded
+          example: notOnboarded
     Error:
       type: object
       required:

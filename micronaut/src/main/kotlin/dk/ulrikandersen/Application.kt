@@ -2,6 +2,7 @@ package dk.ulrikandersen
 
 import dk.ulrikandersen.models.PetNetworkModel
 import dk.ulrikandersen.models.UserProfileNetworkModel
+import dk.ulrikandersen.models.UserProfileNetworkModelOnboardingStatusNetworkModel
 import io.micronaut.core.type.Argument
 import io.micronaut.runtime.Micronaut.run
 import io.micronaut.serde.Decoder
@@ -31,6 +32,7 @@ class UnitSerializer : Serde<Unit> {
 
 @SerdeImport(PetNetworkModel::class)
 @SerdeImport(UserProfileNetworkModel::class)
+@SerdeImport(UserProfileNetworkModelOnboardingStatusNetworkModel::class)
 @SerdeImport(Unit::class)
 @Suppress("unused")
 object Application
