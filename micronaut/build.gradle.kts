@@ -81,7 +81,7 @@ tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative"
 }
 
 fabrikt {
-    generate("huligennem") {
+    generate("rest-api") {
         apiFile = file("openapi.yml")
         basePackage = "dk.ulrikandersen"
         validationLibrary = Jakarta
